@@ -3,6 +3,10 @@
 
 int main(){
     int lines, cols, mines, dificuldade, choice;
+
+    int board[26][26];
+    int blankBoard[26][26];
+    int finalBoard[26][26];
     
     printf("0 - Exit, 1 - Generate Board, 2 - Read Board: ");
     scanf("%d", &choice);
@@ -36,5 +40,7 @@ int main(){
     {
         
     }
+
+
 
 }
