@@ -18,7 +18,7 @@ void generateBoard(int board[26][26], int nLines, int nCols, int nMines){
     // nLin linhas e nCol colunas com nMines minas. Utilize
     // a funÃ§Ã£o rand() (stdlib.h) para gerar a posiÃ§Ã£o de cada mina
 	
-	for(int i = 0; i < nLines; i++){
+	for(int i = 0; i < nLines; i++){ // cada "espaço" no tabuleiro quando ainda tapado é preenchido com um -
 		for(int j = 0; j < nCols; j++){
 			board[i][j] = '-';
 			blankBoard[i][j] = board[i][j];
@@ -28,7 +28,7 @@ void generateBoard(int board[26][26], int nLines, int nCols, int nMines){
 
 	i, j = 0;
 
-	while(mines < nMines){
+	while(mines < nMines){ // definição da posição das minas
 		i = rand()%nLines;
 		j = rand()%nCols;
 		if(board[i][j] != '*'){
@@ -41,7 +41,7 @@ void generateBoard(int board[26][26], int nLines, int nCols, int nMines){
 
 	i, j = 0;
 
-	while(i < nLines){
+	while(i < nLines){ // gerar o valo de cada espaçinho tendo em conta a posição das minas
 		while(j<nCols){
 			if(board[i][j] != '*'){
 				board[i][j] = 0;
@@ -94,7 +94,7 @@ void printBoard(int board[26][26], int nLines, int nCols, bool showMines){
     // ser mostradas (com o carÃ¡cter *)
 
     	int i=0, j=0, k=0;
-	while(k<nLines){
+	while(k<nLines){ // mostrar o número das linhas
 		if(k == 0){
 			printf("\t");
 		}
@@ -103,13 +103,13 @@ void printBoard(int board[26][26], int nLines, int nCols, bool showMines){
 	}
 	printf("\n\n");
 
-	while(j<nCols){
+	while(j<nCols){ // loop para mostrar todos os caractéres do tabuleiro
 		printf("|%d|\t", j);
-		while(i<nLines){
+		while(i<nLines){ 
 			if(blankBoard[i][j] == '-'){
 				print("|%c|\t", blankBoard[i][j]);
 			} else if(board[i][j] == 0){
-				blankBoard[i][j] = 0;
+				blankBoard[i][j] = 'B'; // altera qualquer valor 0 para a letra B (blank)
 				print("|%c|\t", blankBoard[i][j]);
 			} else {
 				print("|%d|\t", blankBoard[i][j]);
